@@ -1,0 +1,29 @@
+{
+  "name": "ashleecruz",
+  "version": "1.0.0",
+  "description": "portfolio project for ashlee cruz",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianalauren/ashleecruz.git"
+  },
+  "author": "briana gude",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brianalauren/ashleecruz/issues"
+  },
+  "homepage": "https://github.com/brianalauren/ashleecruz#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "node-sass": "^4.11.0"
+  }
+}
