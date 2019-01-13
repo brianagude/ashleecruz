@@ -8,6 +8,7 @@ body{
   line-height: 1.45;
   color: black;
   margin: 25px 25px 40px 25px;
+  transition: background-color 0.3s ease;
 }
 
 p {margin: 0 0 1.25em 0;}
@@ -98,7 +99,7 @@ section.projects{
   a:hover img{opacity: 1;}
 }
 
-section.glossier{
+section.copy{
   top: 0;
   right: 0;
   padding: 20px;
@@ -112,6 +113,8 @@ section.glossier{
   width: 50%;
   text-align:right;
   z-index: 5;
+
+  h2{font-weight: 700;}
 
   p, h2{
     padding: 0;
