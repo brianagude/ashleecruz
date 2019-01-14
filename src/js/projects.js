@@ -39,6 +39,11 @@ const pullData = function (){
   })
 }
 
+
+
+
+
+
 pullData().then(data => {
   console.log(data)
 
