@@ -43,23 +43,27 @@ img.logo{
   max-width: 80px;
   position: fixed;
   margin: 20px;
+  // background: green;
 }
 
 div.info{
-  background-color: pink;
-  // width:100%;
-  // height:45px;
+  // background-color: orange;
+  width:100vh;
+  height:80px;
+  margin-left: 25px;
   position:fixed;
+  top: 0;
+  left: 0;
   -webkit-transform-origin: left top;
-  -webkit-transform:rotate(-90deg) translateX(-100%);
+  -webkit-transform:rotate(-90deg) translateX(-112%);
 
   ul.nav {
-      margin:0;
-      margin:0 auto;
+      margin: 0;
       height:100%;
 
+
       li{
-        font-size: 10px;
+        font-size: 25px;
         list-style:none;
         margin-right:20px;
         float:right;
@@ -69,14 +73,22 @@ div.info{
     }
   }
 
+  section.sentence{
+    margin-left: 125px;
+    height: 80px;
+    width: auto;
+    // background-color: yellow;
+  }
+
 section.projects{
   top: 0;
-  margin-left: 150px;
-  max-width: 100%;
+  margin-left: 125px;
+  min-width: auto;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  // background-color: pink;
 
   div:hover a{opacity: 0.3;}
   div a{
@@ -91,7 +103,7 @@ section.projects{
     position: fixed;
     top: 40%;
     left: 80%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -40%);
     max-height: 500px;
     pointer-events: none;
     transition:  opacity 0.3s;

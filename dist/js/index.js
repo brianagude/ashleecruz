@@ -23,7 +23,7 @@ pullData().then(data => {
    projects.innerHTML = projects.innerHTML + `
     <a href='show.html'>
       ${item.client}
-      <img src='img/logo.jpg'>
+      <img src='img/belle.jpg'>
     </a>
  `
  })

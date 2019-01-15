@@ -35,22 +35,25 @@ const projectData = function (){
       let asset = data.includes.Asset.find(asset => {
         return asset.sys.id == photo.sys.id
       })
+
       let url = asset.fields.file.url
       return url
 
+      let images = item.fields.photos.map(url => `<img src="${url}">`).join("")
     })
+
   })
 }
 
-
 projectData().then(data => {
   console.log(data)
+
 
   data.forEach(item =>{
    body.innerHTML = body.innerHTML + `
    <section class='images' data-client = '${item.client}' data-desc='${item.description}' data-bkgrd='${item.backgroundColor}'>
       <div class='content'>
-        <img src='${item.photos.field}'>
+        ${images}
       </div>
     </section>
  `
