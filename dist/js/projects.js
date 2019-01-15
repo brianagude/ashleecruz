@@ -23,30 +23,34 @@ const environmentid = 'master'
 const accesstoken = '358a5b67b07990394c3d9b1bdfccfc72e62a70cee0ecee048ed5100a52865765'
 const url = `https://cdn.contentful.com/spaces/${spaceid}/environments/${environmentid}/entries?access_token=${accesstoken}`
 
-const pullData = function (){
+const projectData = function (){
   return fetch(url)
   .then(response => response.json())
   .then(data => {
-    // const assets = data.includes.Asset
-
     return data.items.map(item => {
-    //   const imageid = item.fields.photos.sys.id
-    //   const imagedata = assets.find(asset => {
-    //     return asset.sys.id ==imageid
-    //   })
       return item.fields
+    })
+
+    item.fields.images = item.fields.photos.map(photo => {
+      let asset = data.includes.Asset.find(asset => {
+        return asset.sys.id == photo.sys.id
+      })
+      let url = asset.fields.file.url
+      return url
+
     })
   })
 }
 
-pullData().then(data => {
+
+projectData().then(data => {
   console.log(data)
 
   data.forEach(item =>{
    body.innerHTML = body.innerHTML + `
    <section class='images' data-client = '${item.client}' data-desc='${item.description}' data-bkgrd='${item.backgroundColor}'>
       <div class='content'>
-        <img src='${item.photos}'>
+        <img src='${item.photos.field}'>
       </div>
     </section>
  `
