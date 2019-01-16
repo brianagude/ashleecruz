@@ -11,13 +11,13 @@
   transition: $all 0.8s ease;
 }
 
-@mixin mq($width) {
+@mixin mediawidth($width) {
   @media (max-width: $width) {
     @content;
   }
 }
 
-@mixin mq($height) {
+@mixin mediaheight($height) {
   @media (max-width: $height) {
     @content;
   }
@@ -25,7 +25,7 @@
 
 html {
   font-size: 24px;
-  @include mq(1200px) {
+  @include mediawidth(1200px) {
     font-size: 16px;
   }
 }
@@ -92,7 +92,7 @@ img.logo {
   position: fixed;
   margin: 25px;
   // background: green;
-  @include mq(1000px) {
+  @include mediawidth(1000px) {
     // max-width: 40px;
   }
 }
@@ -251,7 +251,7 @@ section.images {
     // width: 100%;
     // background: pink;
     overflow: auto;
-    @include mq(1200px) {
+    @include mediawidth(1200px) {
       @include flex(center);
       flex-wrap: wrap;
       overflow: none;
@@ -266,7 +266,7 @@ section.images {
     // max-width: 40vw;
     margin: 24px;
     // background: yellow;
-    @include mq(1200px) {
+    @include mediawidth(1200px) {
       width: 80%;
       height: auto;
     }
