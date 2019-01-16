@@ -32,7 +32,7 @@ const projectData = function (){
         let asset = data.includes.Asset.find(asset => {
           return asset.sys.id == photo.sys.id
         })
-  
+
         let url = asset.fields.file.url
         return url
       }).map(url => `<img src="${url}">`).join("")
@@ -40,14 +40,13 @@ const projectData = function (){
       return item.fields
     })
 
-    
+
 
   })
 }
 
 projectData().then(data => {
   console.log(data)
-
 
   data.forEach(item =>{
    body.innerHTML = body.innerHTML + `
