@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Advent+Pro:100,200,300,400,500,600,700|Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+@import url("https://fonts.googleapis.com/css?family=Advent+Pro:100,200,300,400,500,600,700|Lato:100,100i,300,300i,400,400i,700,700i,900,900i");
 
 // mixins
 @mixin flex($justify) {
@@ -8,29 +8,31 @@
 }
 
 @mixin transition($all) {
-  transition: $all 0.5s ease;
+  transition: $all 0.8s ease;
 }
 
 @mixin mq($width) {
-  @media (max-width: $width){
+  @media (max-width: $width) {
     @content;
   }
 }
 
-
-
-
+@mixin mq($height) {
+  @media (max-width: $height) {
+    @content;
+  }
+}
 
 html {
-  font-size: 32px;
-  @include mq(1000px){
+  font-size: 24px;
+  @include mq(1200px) {
     font-size: 16px;
   }
 }
 
-body{
+body {
   background: white;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 300;
   line-height: 1.45;
   color: black;
@@ -38,100 +40,129 @@ body{
   @include transition(background-color);
 }
 
-p {margin: 0 0 1.25em 0;}
+p {
+  margin: 0 0 1.25em 0;
+}
 
-a, h2, .button{
-  font-family: 'Advent Pro', sans-serif;
+a,
+h2,
+.button {
+  font-family: "Advent Pro", sans-serif;
   color: black;
   text-decoration: none;
   font-weight: 700;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 2.75rem 0 1rem;
   font-weight: 400;
   line-height: 1.15;
 }
 
-h1, section.projects a {
+h1,
+section.projects a {
   margin-top: 0;
-  font-size: 3.052em;
+  font-size: 5.653em;
 }
 
-h2 {font-size: 2.441em;}
-h3 {font-size: 1.953em;}
-h4 {font-size: 1.563em;}
-h5 {font-size: 1.25em;}
-small, .text_small,.list {font-size: 0.8em;}
+h2 {
+  font-size: 3.998em;
+}
 
-img.logo{
+h3 {
+  font-size: 2.827em;
+}
+
+h4 {
+  font-size: 1.999em;
+}
+
+h5 {
+  font-size: 1.414em;
+}
+
+img.logo {
   top: 0;
   left: 0;
-  max-width: 80px;
+  width: 5vw;
   position: fixed;
-  margin: 20px;
+  margin: 25px;
   // background: green;
-  @include mq(1000px){
-    max-width: 40px;
+  @include mq(1000px) {
+    // max-width: 40px;
   }
 }
 
-div.info{
+div.ashlee {
+  position: fixed;
+  top: 50%;
+  right: 20%;
+
+  img {
+    height: 56vh;
+    transform: translate(50%, -50%);
+    opacity: 0;
+    margin: 10px;
+    z-index: 5;
+    @include transition(opacity);
+  }
+}
+
+div.info {
   // background-color: orange;
-  width:100vh;
-  height:80px;
+  width: 90vh;
+  height: 80px;
   margin-left: 25px;
-  position:fixed;
-  top: 0;
+  position: fixed;
+  bottom: 0px;
   left: 0;
   -webkit-transform-origin: left top;
-  -webkit-transform:rotate(-90deg) translateX(-112%);
+  -webkit-transform: rotate(-90deg) translateX(-100px);
 
   ul.nav {
-      margin: 0;
-      height:100%;
+    margin: 0;
+    height: 100%;
 
-
-      li{
-        font-size: 25px;
-        list-style:none;
-        margin-right:20px;
-        float:right;
-        height:100%;
-        line-height:45px;
-      }
+    li {
+      list-style: none;
+      margin-right: 20px;
+      float: right;
+      height: 100%;
+      line-height: 45px;
     }
   }
+}
 
-  section.sentence{
-    margin-left: 125px;
-    height: 80px;
-    width: auto;
-    p{font-size: 1em;}
-    // background-color: yellow;
+section.sentence {
+  margin-left: 125px;
+  height: 80px;
+  width: auto;
+  // background-color: yellow;
 
-    .list {
-      font-family: 'Advent Pro', sans-serif;
-      font-weight: 700;
-      display: inline-block !important;
-      // font-weight: 700;
-      position: relative;
-      @include transition(all);
-      font-size: 1em;
-      }
-      .list div.button {
-        // font-family: 'Advent Pro', sans-serif;
-          display: none;
-          width:300px;
-          position:absolute;
-          left:0;
-          top:100%;
-          margin: 2px;
-          @include transition(all);
-      }
+  .list {
+    font-family: "Advent Pro", sans-serif;
+    font-weight: 700;
+    display: inline-block !important;
+    position: relative;
+    font-size: 1em;
   }
+  .list div.button {
+    // font-family: 'Advent Pro', sans-serif;
+    display: none;
+    width: 300px;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin: 2px;
+    @include transition(all);
+  }
+}
 
-section.projects{
+section.projects {
   top: 0;
   margin-left: 125px;
   min-width: auto;
@@ -139,29 +170,38 @@ section.projects{
   flex-wrap: wrap;
   // background-color: pink;
 
-  div:hover a{opacity: 0.3;}
-  div a{
+  div:hover a {
+    opacity: 0.3;
+  }
+  div a {
     display: block;
     @include transition(opacity);
 
-    &:hover{opacity: 1;}
+    &:hover {
+      opacity: 1;
+    }
   }
 
-  img{
+  img {
     opacity: 0;
     position: fixed;
-    top: 40%;
-    left: 80%;
-    transform: translate(-50%, -30%);
-    max-width: 500px;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    // max-width: 500px;
+    height: 65vh;
+    // max-width: 40vw;
     pointer-events: none;
+    z-index: -1;
     @include transition(opacity);
   }
 
-  a:hover img{opacity: 1;}
+  a:hover img {
+    opacity: 1;
+  }
 }
 
-section.copy{
+section.copy {
   top: 0;
   right: 0;
   padding: 20px;
@@ -171,45 +211,64 @@ section.copy{
   margin-left: 150px;
   position: fixed;
   width: 50%;
-  text-align:right;
+  text-align: right;
   z-index: 5;
 
-  h2{font-weight: 700;}
+  div {
+    display: block;
+    width: 100%;
+  }
 
-  p, h2{
+  h2 {
+    font-weight: 700;
+  }
+
+  p,
+  h2 {
     padding: 0;
     margin: 0;
-    display: block;
-    min-width: 100%;
-    font-family: 'Advent Pro', sans-serif;
+    font-family: "Advent Pro", sans-serif;
     // background-color: orange;
   }
 }
 
-section.images{
+section.images {
   @include flex(center);
   flex-wrap: wrap;
-  margin-left: 150px;
-  padding-top: 250px;
-  width: 80vw;
+  margin-left: 80px;
+  padding-top: 100px;
+  width: 90vw;
   // background-color: green;
 
   div.content {
-    position: relative;
+    margin: 48px;
+    // position: relative;
     // padding: 20px 0;
     width: 100%;
     height: auto;
     @include flex(flex-start);
-    flex-wrap: wrap;
-    width: 90vw;
+    // flex-wrap: wrap;
+    // width: 100%;
     // background: pink;
+    overflow: auto;
+    @include mq(1200px) {
+      @include flex(center);
+      flex-wrap: wrap;
+      overflow: none;
+    }
+  }
 
-    img {
-      position: relative;
-      // max-height: 600px;
-      width: 40%;
-      margin: 25px;
-      // background: yellow;
+  img {
+    position: relative;
+    // max-height: 600px;
+    // width: 40%;
+    height: 36vw;
+    // max-width: 40vw;
+    margin: 24px;
+    // background: yellow;
+    @include mq(1200px) {
+      width: 80%;
+      height: auto;
     }
   }
 }
