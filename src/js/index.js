@@ -1,9 +1,35 @@
+// dropdown sentence
+const button = document.querySelectorAll('div.list')
+const list = document.querySelectorAll('div.button')
+const projectLinks = document.querySelectorAll('section.projects div')
+
+$(button).on('mouseenter', function(){
+	$(list).css("display", "inline");
+	$(projectLinks).css("opacity", "0.1");
+})
+
+$(button).on('mouseout', function(){
+	$(list).css("display", "none");
+	$(projectLinks).css("opacity", "1");
+})
+
+$(button).on('touchstart', function(){
+	$(list).css("display", "inline");
+	$(projectLinks).css("opacity", "0.1");
+})
+
+$(button).on('touchend', function(){
+	$(list).css("display", "none");
+	$(projectLinks).css("opacity", "1");
+})
+
+// contentful
 const projects = document.querySelector('section.projects div')
 
 const spaceid = 'nbf7jcn8mztl'
 const environmentid = 'master'
 const accesstoken = '358a5b67b07990394c3d9b1bdfccfc72e62a70cee0ecee048ed5100a52865765'
-const url = `https://cdn.contentful.com/spaces/${spaceid}/environments/${environmentid}/entries?access_token=${accesstoken}`
+const url = `https://cdn.contentful.com/spaces/${spaceid}/environments/${environmentid}/entries?access_token=${accesstoken}&order=-fields.client&content_type=clientName`
 
 const projectData = function (){
   return fetch(url)

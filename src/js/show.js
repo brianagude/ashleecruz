@@ -21,7 +21,7 @@ const body = document.body
 const spaceid = 'nbf7jcn8mztl'
 const environmentid = 'master'
 const accesstoken = '358a5b67b07990394c3d9b1bdfccfc72e62a70cee0ecee048ed5100a52865765'
-const url = `https://cdn.contentful.com/spaces/${spaceid}/environments/${environmentid}/entries?access_token=${accesstoken}`
+const url = `https://cdn.contentful.com/spaces/${spaceid}/environments/${environmentid}/entries?access_token=${accesstoken}&order=-fields.client&content_type=clientName`
 
 const projectData = function (){
   return fetch(url)
@@ -36,12 +36,9 @@ const projectData = function (){
         let url = asset.fields.file.url
         return url
       }).map(url => `<img src="${url}">`).join("")
-
+      
       return item.fields
     })
-
-
-
   })
 }
 
@@ -50,7 +47,7 @@ projectData().then(data => {
 
   data.forEach(item =>{
    body.innerHTML = body.innerHTML + `
-   <section class='images' data-client = '${item.client}' data-desc='${item.description}' data-bkgrd='${item.backgroundColor}'>
+   <section class='images' id='${item.client}' data-client = '${item.client}' data-desc='${item.description}' data-bkgrd='${item.backgroundColor}'>
       <div class='content'>
         ${item.photoString}
       </div>

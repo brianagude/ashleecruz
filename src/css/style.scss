@@ -1,19 +1,46 @@
 @import url('https://fonts.googleapis.com/css?family=Advent+Pro:100,200,300,400,500,600,700|Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
 
-html {font-size: 40px;}
+// mixins
+@mixin flex($justify) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+}
+
+@mixin transition($all) {
+  transition: $all 0.5s ease;
+}
+
+@mixin mq($width) {
+  @media (max-width: $width){
+    @content;
+  }
+}
+
+
+
+
+
+html {
+  font-size: 32px;
+  @include mq(1000px){
+    font-size: 16px;
+  }
+}
+
 body{
-  background-color: white;
+  background: white;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
   line-height: 1.45;
   color: black;
   margin: 25px 25px 40px 25px;
-  transition: background-color 0.3s ease;
+  @include transition(background-color);
 }
 
 p {margin: 0 0 1.25em 0;}
 
-a, h2, span{
+a, h2, .button{
   font-family: 'Advent Pro', sans-serif;
   color: black;
   text-decoration: none;
@@ -35,7 +62,7 @@ h2 {font-size: 2.441em;}
 h3 {font-size: 1.953em;}
 h4 {font-size: 1.563em;}
 h5 {font-size: 1.25em;}
-small, .text_small {font-size: 0.8em;}
+small, .text_small,.list {font-size: 0.8em;}
 
 img.logo{
   top: 0;
@@ -44,6 +71,9 @@ img.logo{
   position: fixed;
   margin: 20px;
   // background: green;
+  @include mq(1000px){
+    max-width: 40px;
+  }
 }
 
 div.info{
@@ -77,23 +107,42 @@ div.info{
     margin-left: 125px;
     height: 80px;
     width: auto;
+    p{font-size: 1em;}
     // background-color: yellow;
+
+    .list {
+      font-family: 'Advent Pro', sans-serif;
+      font-weight: 700;
+      display: inline-block !important;
+      // font-weight: 700;
+      position: relative;
+      @include transition(all);
+      font-size: 1em;
+      }
+      .list div.button {
+        // font-family: 'Advent Pro', sans-serif;
+          display: none;
+          width:300px;
+          position:absolute;
+          left:0;
+          top:100%;
+          margin: 2px;
+          @include transition(all);
+      }
   }
 
 section.projects{
   top: 0;
   margin-left: 125px;
   min-width: auto;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  @include flex(flex-start);
   flex-wrap: wrap;
   // background-color: pink;
 
   div:hover a{opacity: 0.3;}
   div a{
     display: block;
-    transition: all 0.3s ease;
+    @include transition(opacity);
 
     &:hover{opacity: 1;}
   }
@@ -106,7 +155,7 @@ section.projects{
     transform: translate(-50%, -30%);
     max-width: 500px;
     pointer-events: none;
-    transition:  opacity 0.3s;
+    @include transition(opacity);
   }
 
   a:hover img{opacity: 1;}
@@ -117,9 +166,7 @@ section.copy{
   right: 0;
   padding: 20px;
 
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  @include flex(flex-end);
   flex-wrap: wrap;
   margin-left: 150px;
   position: fixed;
@@ -133,15 +180,13 @@ section.copy{
     padding: 0;
     margin: 0;
     display: block;
-    width: 100%;
+    min-width: 100%;
     // background-color: orange;
   }
 }
 
 section.images{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex(center);
   flex-wrap: wrap;
   margin-left: 150px;
   padding-top: 250px;
@@ -153,9 +198,7 @@ section.images{
     // padding: 20px 0;
     width: 100%;
     height: auto;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
+    @include flex(flex-start);
     flex-wrap: wrap;
     width: 90vw;
     // background: pink;
