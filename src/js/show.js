@@ -28,19 +28,19 @@ const projectData = function (){
   .then(response => response.json())
   .then(data => {
     return data.items.map(item => {
+      item.fields.photoString = item.fields.photos.map(photo => {
+        let asset = data.includes.Asset.find(asset => {
+          return asset.sys.id == photo.sys.id
+        })
+
+        let url = asset.fields.file.url
+        return url
+      }).map(url => `<img src="${url}">`).join("")
+
       return item.fields
     })
 
-    item.fields.images = item.fields.photos.map(photo => {
-      let asset = data.includes.Asset.find(asset => {
-        return asset.sys.id == photo.sys.id
-      })
 
-      let url = asset.fields.file.url
-      return url
-
-      let images = item.fields.photos.map(url => `<img src="${url}">`).join("")
-    })
 
   })
 }
@@ -48,12 +48,11 @@ const projectData = function (){
 projectData().then(data => {
   console.log(data)
 
-
   data.forEach(item =>{
    body.innerHTML = body.innerHTML + `
    <section class='images' data-client = '${item.client}' data-desc='${item.description}' data-bkgrd='${item.backgroundColor}'>
       <div class='content'>
-        ${images}
+        ${item.photoString}
       </div>
     </section>
  `

@@ -43,39 +43,52 @@ img.logo{
   max-width: 80px;
   position: fixed;
   margin: 20px;
+  // background: green;
 }
 
-nav.info{
-  display: none;
-  position: fixed;
+div.info{
+  // background-color: orange;
+  width:100vh;
+  height:80px;
+  margin-left: 25px;
+  position:fixed;
   top: 0;
   left: 0;
-  margin: 120px 25px 25px 25px;
-  // height: 100vh;
-  // width: 30px;
-  p,a{
-    transform: rotate(90deg);
-    // position: fixed;
-    // margin-left: 20px;
-    // left:0;
-    //
-    // .rotate1{top: 20px;}
-    // .rotate2{top: 30px;}
-    // .rotate3{top: 40px;}
-    // .rotate4{top: 50px;}
-    // .rotate5{top: 60px;}
-    // .rotate6{top: 70px;}
+  -webkit-transform-origin: left top;
+  -webkit-transform:rotate(-90deg) translateX(-112%);
+
+  ul.nav {
+      margin: 0;
+      height:100%;
+
+
+      li{
+        font-size: 25px;
+        list-style:none;
+        margin-right:20px;
+        float:right;
+        height:100%;
+        line-height:45px;
+      }
+    }
   }
-}
+
+  section.sentence{
+    margin-left: 125px;
+    height: 80px;
+    width: auto;
+    // background-color: yellow;
+  }
 
 section.projects{
   top: 0;
-  margin-left: 150px;
-  max-width: 100%;
+  margin-left: 125px;
+  min-width: auto;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  // background-color: pink;
 
   div:hover a{opacity: 0.3;}
   div a{
@@ -90,8 +103,8 @@ section.projects{
     position: fixed;
     top: 40%;
     left: 80%;
-    transform: translate(-50%, -50%);
-    max-height: 500px;
+    transform: translate(-50%, -30%);
+    max-width: 500px;
     pointer-events: none;
     transition:  opacity 0.3s;
   }
@@ -132,15 +145,27 @@ section.images{
   flex-wrap: wrap;
   margin-left: 150px;
   padding-top: 250px;
+  width: 80vw;
+  // background-color: green;
 
-  div {
+  div.content {
     position: relative;
-    padding: 20px 0;
+    // padding: 20px 0;
     width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 90vw;
+    // background: pink;
 
     img {
       position: relative;
-      max-height: 600px;
+      // max-height: 600px;
+      width: 40%;
+      margin: 25px;
+      // background: yellow;
     }
   }
 }
