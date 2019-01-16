@@ -4,8 +4,21 @@ var cleanCss = require('gulp-clean-css')
 var sourcemaps = require('gulp-sourcemaps')
 var browserSync = require('browser-sync').create()
 var imagemin = require('gulp-imagemin');
+var del = require('del');
+var runSequence = require('run-sequence');
 
 sass.compiler = require('node-sass');
+
+gulp.task('clean:dist', function() {
+  return del.sync('dist');
+})
+
+gulp.task('build', function (callback) {
+  runSequence('clean:dist',
+    ['sass', 'html', 'java', 'images'],
+    callback
+  )
+})
 
 gulp.task('sass', function(){
   return gulp.src('src/css/style.scss')
