@@ -191,9 +191,14 @@ section.copy {
   text-align: right;
   z-index: 5;
 
-  div {
+  div.client {
     display: block;
     width: 100%;
+  }
+
+  div.desc {
+    display: block;
+    width: 50%;
   }
 
   h2 {
@@ -202,6 +207,7 @@ section.copy {
 
   p,
   h2 {
+    // font-weight: 700;
     padding: 0;
     margin: 0;
     font-family: "Advent Pro", sans-serif;
