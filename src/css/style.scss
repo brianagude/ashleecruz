@@ -168,6 +168,7 @@ section.projects {
     left: 70%;
     transform: translate(-50%, -50%);
     height: 65vh;
+    width: auto;
     pointer-events: none;
     z-index: -1;
     @include transition(opacity);
@@ -198,7 +199,7 @@ section.copy {
 
   div.desc {
     display: block;
-    width: 50%;
+    width: 80%;
   }
 
   h2 {
@@ -279,6 +280,7 @@ section.images {
 
     img {
       height: 30vh;
+      width: auto;
       transform: translate(40%, -60%);
     }
   }

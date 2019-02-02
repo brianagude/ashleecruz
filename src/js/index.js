@@ -62,11 +62,9 @@ projectData().then(data => {
   data.forEach(item => {
     projects.innerHTML =
       projects.innerHTML +
-      `
-    <a href='show.html#${item.client}'>
+      `<a href='show.html#${item.client.toLowerCase().replace(" ", "-")}'>
       ${item.client}
       <img src='${item.photoUrls[0]}'>
-    </a>
- `;
+      </a>`;
   });
 });

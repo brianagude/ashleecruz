@@ -47,18 +47,30 @@ const projectData = function() {
 
 projectData().then(data => {
   console.log(data);
-
-  data.forEach(item => {
+  contentTag = data.forEach(item => {
     body.innerHTML =
       body.innerHTML +
       `
-        <section class='images' id='${item.client}' data-client = '${
-        item.client
-      }' data-desc='${item.description}' data-bkgrd='${item.backgroundColor}'>
+        <section class='images' id='${item.client
+          .toLowerCase()
+          .replace(" ", "-")}' data-client = '${item.client}' data-desc='${
+        item.description
+      }' data-bkgrd='${item.backgroundColor}'>
         <div class='content'>
           ${item.photoString}
         </div>
       </section>
     `;
+  });
+
+  document.addEventListener("scroll", function() {
+    let scrolled = window.pageYOffset;
+    let wh = window.innerHeight;
+    let ph = document.querySelector("body").offsetHeight;
+
+    if (scrolled + wh > ph - 400) {
+      // add new content
+      contentTag = contentTag + contentTag;
+    }
   });
 });
