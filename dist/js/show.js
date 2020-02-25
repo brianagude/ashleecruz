@@ -16,7 +16,6 @@ document.addEventListener("scroll", function() {
 
 // contentful
 const body = document.body;
-
 const spaceid = "nbf7jcn8mztl";
 const environmentid = "master";
 const accesstoken =
@@ -46,16 +45,18 @@ const projectData = function() {
 };
 
 projectData().then(data => {
-  console.log(data);
   contentTag = data.forEach(item => {
     body.innerHTML =
       body.innerHTML +
       `
-        <section class='images' id='${item.client
-          .toLowerCase()
-          .replace(" ", "-")}' data-client = '${item.client}' data-desc='${
-        item.description
-      }' data-bkgrd='${item.backgroundColor}'>
+        <section class='images' 
+          id='${item.client
+            .toLowerCase()
+            .replace(" ", "-")}' 
+          data-client = '${item.client}' 
+          data-desc='${item.description}' 
+          data-bkgrd='${item.backgroundColor}'
+        >
         <div class='content'>
           ${item.photoString}
         </div>
@@ -69,7 +70,6 @@ projectData().then(data => {
     let ph = document.querySelector("body").offsetHeight;
 
     if (scrolled + wh > ph - 400) {
-      // add new content
       contentTag = contentTag + contentTag;
     }
   });
