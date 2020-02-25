@@ -13,9 +13,7 @@
 
 // beginning code
 
-html {
-  font-size: 24px;
-}
+html { font-size: 24px; }
 
 body {
   background: white;
@@ -51,7 +49,7 @@ h5 {
 }
 
 h1,
-section.projects a {
+.projects a {
   margin-top: 0;
   font-size: 5.653em;
 }
@@ -72,7 +70,7 @@ h5 {
   font-size: 1.414em;
 }
 
-img.logo {
+.logo {
   top: 0;
   left: 0;
   width: 5vw;
@@ -80,7 +78,7 @@ img.logo {
   margin: 25px;
 }
 
-div.ashlee {
+.ashlee {
   position: fixed;
   top: 50%;
   right: 20%;
@@ -132,7 +130,7 @@ section.sentence {
     position: relative;
     font-size: 1em;
   }
-  .list div.button {
+  .list .button {
     display: none;
     width: 300px;
     position: absolute;
@@ -143,23 +141,19 @@ section.sentence {
   }
 }
 
-section.projects {
+.projects {
   top: 0;
   margin-left: 125px;
   min-width: auto;
   @include flex(flex-start);
   flex-wrap: wrap;
 
-  div:hover a {
-    opacity: 0.3;
-  }
+  div:hover a { opacity: 0.3; }
   div a {
     display: block;
     @include transition(opacity);
 
-    &:hover {
-      opacity: 1;
-    }
+    &:hover { opacity: 1; }
   }
 
   img {
@@ -172,12 +166,11 @@ section.projects {
     width: auto;
     pointer-events: none;
     z-index: -1;
+
     @include transition(opacity);
   }
 
-  a:hover img {
-    opacity: 1;
-  }
+  a:hover img { opacity: 1; }
 }
 
 section.copy {
@@ -209,21 +202,20 @@ section.copy {
 
   p,
   h2 {
-    // font-weight: 700;
     padding: 0;
     margin: 0;
     font-family: "Advent Pro", sans-serif;
   }
 }
 
-section.images {
+.images {
   @include flex(center);
   flex-wrap: wrap;
   margin-left: 80px;
   padding-top: 100px;
   width: 90vw;
 
-  div.content {
+  .content {
     margin: 48px;
     width: 100%;
     height: auto;
@@ -240,9 +232,7 @@ section.images {
 
 // mediaqueries
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
-  html {
-    font-size: 24px;
-  }
+  html { font-size: 24px; }
 
   body {
     margin: 15px 15px 20px 15px;
