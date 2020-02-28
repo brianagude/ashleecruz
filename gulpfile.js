@@ -21,7 +21,7 @@ gulp.task('build', function (callback) {
 })
 
 gulp.task('sass', function(){
-  return gulp.src('src/css/style.scss')
+  return gulp.src('src/css/*')
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(cleanCss({
@@ -57,7 +57,7 @@ gulp.task('watch', function(){
   })
 
   gulp.watch('src/*.html', ['html']).on('change', browserSync.reload)
-  gulp.watch('src/css/style.scss', ['sass'])
+  gulp.watch('src/css/*', ['sass'])
   gulp.watch('src/js/*', ['java'])
   gulp.watch('src/img/*', ['images'])
 })

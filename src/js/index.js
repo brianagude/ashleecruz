@@ -2,29 +2,122 @@
 const button = document.querySelectorAll("div.list");
 const list = document.querySelectorAll("div.button");
 const projectLinks = document.querySelectorAll("section.projects div");
-const ashlee = document.querySelector("div.ashlee img");
+const ashlee = document.querySelector("div.ashlee");
+const ashleeBtn = document.querySelector("a.ashlee-btn");
 
 $(button).on("mouseenter", function() {
-  $(list).css("display", "inline");
-  $(projectLinks).css("opacity", "0.1");
+  if ($(window).width() > 700) {
+    $(list).css("display", "inline");
+    $(projectLinks).css("opacity", "0.1");
+  }
+  
   $(ashlee).css("opacity", "1");
 });
 
 $(button).on("mouseout", function() {
-  $(list).css("display", "none");
-  $(projectLinks).css("opacity", "1");
+  if ($(window).width() > 700) {
+    $(list).css("display", "none");
+    $(projectLinks).css("opacity", "1");
+  }
+  
   $(ashlee).css("opacity", "0");
 });
 
 $(button).on("touchstart", function() {
-  $(list).css("display", "inline");
-  $(projectLinks).css("opacity", "0.1");
+  if ($(window).width() > 700) {
+    $(list).css("display", "inline");
+    $(projectLinks).css("opacity", "0.1");
+  }
+  
   $(ashlee).css("opacity", "1");
 });
 
 $(button).on("touchend", function() {
-  $(list).css("display", "none");
-  $(projectLinks).css("opacity", "1");
+  if ($(window).width() > 700) {
+    $(list).css("display", "none");
+    $(projectLinks).css("opacity", "1");
+  }
+  
+  $(ashlee).css("opacity", "0");
+});
+
+$(button).on("mouseenter", function() {
+  if ($(window).width() > 700) {
+    $(list).css("display", "inline");
+    $(projectLinks).css("opacity", "0.1");
+  }
+  
+  $(ashlee).css("opacity", "1");
+});
+
+$(button).on("mouseout", function() {
+  if ($(window).width() > 700) {
+    $(list).css("display", "none");
+    $(projectLinks).css("opacity", "1");
+  }
+  
+  $(ashlee).css("opacity", "0");
+});
+
+$(button).on("touchstart", function() {
+  if ($(window).width() > 700) {
+    $(list).css("display", "inline");
+    $(projectLinks).css("opacity", "0.1");
+  }
+  
+  $(ashlee).css("opacity", "1");
+});
+
+$(button).on("touchend", function() {
+  if ($(window).width() > 700) {
+    $(list).css("display", "none");
+    $(projectLinks).css("opacity", "1");
+  }
+  
+  $(ashlee).css("opacity", "0");
+});
+
+
+
+
+
+
+
+
+
+$(ashleeBtn).on("mouseenter", function () {
+  if ($(window).width() > 700) {
+    $(list).css("display", "inline");
+    $(projectLinks).css("opacity", "0.1");
+  }
+
+  $(ashlee).css("opacity", "1");
+});
+
+$(ashleeBtn).on("mouseout", function () {
+  if ($(window).width() > 700) {
+    $(list).css("display", "none");
+    $(projectLinks).css("opacity", "1");
+  }
+
+  $(ashlee).css("opacity", "0");
+});
+
+$(ashleeBtn).on("touchstart", function () {
+  if ($(window).width() > 700) {
+    $(list).css("display", "inline");
+    $(projectLinks).css("opacity", "0.1");
+  }
+
+  $(ashlee).css("opacity", "1");
+});
+
+$(ashleeBtn).on("touchend", function () {
+  if ($(window).width() > 700) {
+    $(list).css("display", "none");
+    $(projectLinks).css("opacity", "1");
+  }
+
   $(ashlee).css("opacity", "0");
 });
 

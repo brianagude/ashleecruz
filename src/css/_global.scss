@@ -1,0 +1,179 @@
+@mixin center($direction:row) {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  flex-direction: $direction;
+}
+
+@mixin flex($justify) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+}
+
+@mixin transition($all) {
+  transition: $all 0.5s ease;
+}
+
+
+// header ------------------------------------------------------------------------------
+
+.site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px;
+  z-index: 5;
+
+  img {
+    margin: 0;
+    width: 54px;
+    // background: $white; 
+  }
+}
+
+// side nav ------------------------------------------------------------------------------
+
+.info {
+  position: fixed; 
+  display: flex;
+  flex-direction: row-reverse;
+  width: max-content;
+  
+  margin-left: 36px;
+  transform: rotate(-90deg) translateX(-100%);
+  transform-origin: left;
+
+  a {
+    display: inline-block;
+
+    &:after {
+      content: '—';
+      font-weight: 300;
+    }
+
+    &:first-of-type {
+      &:after { content: ''; }
+    }
+  }
+}
+
+// top sentence ------------------------------------------------------------------------------
+
+.sentence {
+  position: absolute;
+  top: 16px;
+  left: 96px;
+  padding-right: 16px; 
+  width: 100%;
+  z-index: 10;
+
+  .list {
+    font-family: $secondary;
+    font-weight: 700;
+    display: inline-block !important;
+    position: relative;
+    font-size: 1em;
+  }
+
+  .list .button {
+    display: none;
+    width: 320px;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin: 2px;
+    transition: all 3s;
+    background: #ffffff95;
+  }
+}
+
+.ashlee {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  right: 32px;
+  transform: translateY(-60%);
+
+  img {
+    height: 30vh;
+    width: auto;
+  }
+
+  @media (min-width: 768px) {
+    img { height: 60vh; }
+  }
+}
+
+// projects - homepage ------------------------------------------------------------------------------
+
+.projects {
+  top: 0;
+  margin-left: 96px;
+  min-width: auto;
+  @include flex(flex-start);
+  flex-wrap: wrap;
+
+  div:hover a { opacity: 0.3; }
+  div a {
+    display: block;
+    @include transition(opacity);
+
+    &:hover { opacity: 1; }
+  }
+
+  img {
+    opacity: 0;
+    position: fixed;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    height: 65vh;
+    width: auto;
+    pointer-events: none;
+    z-index: -1;
+
+    @include transition(opacity);
+  }
+
+  a:hover img { opacity: 1; }
+}
+
+// projects page -------------------------
+  section.copy {
+    padding: 10px;
+    margin-left: 64px;
+
+    h2 {
+      font-size: 1.215em;
+    }
+
+    p {
+      font-size: 0.8em;
+    }
+  }
+
+  section.images {
+    @include flex(center);
+    flex-wrap: wrap;
+    margin: auto;
+    padding-top: 64px;
+    width: 90vw;
+
+    div.content {
+      margin: 10px auto;
+      width: 100%;
+      height: auto;
+      @include flex(flex-start);
+      flex-wrap: wrap;
+      overflow: none;
+    }
+
+    img {
+      position: relative;
+      width: 70vw;
+      height: auto;
+      margin: 16px auto;
+    }
+  }
