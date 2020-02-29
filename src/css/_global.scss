@@ -15,21 +15,56 @@
   transition: $all 0.5s ease;
 }
 
+@mixin breakpoint($class) {
+  @if $class == mobile-only {
+    @media (max-width: 359px) { @content; }
+  }
+  
+  @else if $class == small-only {
+    @media (max-width: 787px) { @content; }
+  }
+
+  @else if $class == tablet-only {
+    @media (max-width: 1024px) { @content; }
+  }
+
+  @else if $class == xs {
+    @media (min-width: 360px) { @content; }
+  }
+
+  @else if $class == sm {
+    @media (min-width: 768px) { @content; }
+  }
+
+  @else if $class == md {
+    @media (min-width: 1024px) { @content; }
+  }
+
+  @else if $class == lg {
+    @media (min-width: 1280px) { @content; }
+  }
+
+  @else if $class == xl {
+    @media (min-width: 1440px) { @content; }
+  }
+
+  @else if $class == xxl {
+    @media (min-width: 1920px) { @content; }
+  }
+}
+
 
 // header ------------------------------------------------------------------------------
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
   padding: 16px;
-  z-index: 5;
 
   img {
     margin: 0;
     width: 54px;
-    // background: $white; 
   }
 }
 
@@ -39,9 +74,10 @@
   position: fixed; 
   display: flex;
   flex-direction: row-reverse;
-  width: max-content;
+  min-width: 100vh;
   
   margin-left: 36px;
+  margin-top: 72px;
   transform: rotate(-90deg) translateX(-100%);
   transform-origin: left;
 
@@ -62,12 +98,8 @@
 // top sentence ------------------------------------------------------------------------------
 
 .sentence {
-  position: absolute;
-  top: 16px;
-  left: 96px;
-  padding-right: 16px; 
-  width: 100%;
-  z-index: 10;
+  position: relative;
+  padding: 16px 16px 16px 88px;
 
   .list {
     font-family: $secondary;
@@ -75,6 +107,7 @@
     display: inline-block !important;
     position: relative;
     font-size: 1em;
+    padding-bottom: 8px; 
   }
 
   .list .button {
@@ -88,6 +121,8 @@
     background: #ffffff95;
   }
 }
+
+.ashlee-btn:hover { cursor: pointer; }
 
 .ashlee {
   opacity: 0;
@@ -110,17 +145,38 @@
 
 .projects {
   top: 0;
-  margin-left: 96px;
+  margin-left: 88px;
   min-width: auto;
   @include flex(flex-start);
   flex-wrap: wrap;
 
-  div:hover a { opacity: 0.3; }
-  div a {
+  &:hover a { opacity: 0.3; }
+  a {
     display: block;
+    font-size: 56px;
     @include transition(opacity);
 
     &:hover { opacity: 1; }
+
+    @include breakpoint (xs){
+      font-size: 80px; 
+    }
+
+    @include breakpoint (sm){
+      font-size: 180px;
+    }
+
+    @include breakpoint(md){
+      font-size: 240px;
+    }
+
+    @include breakpoint (lg){
+      font-size: 300px;
+    }
+
+    @include breakpoint (xl){
+      font-size: 360px;
+    }
   }
 
   img {
@@ -140,40 +196,4 @@
   a:hover img { opacity: 1; }
 }
 
-// projects page -------------------------
-  section.copy {
-    padding: 10px;
-    margin-left: 64px;
-
-    h2 {
-      font-size: 1.215em;
-    }
-
-    p {
-      font-size: 0.8em;
-    }
-  }
-
-  section.images {
-    @include flex(center);
-    flex-wrap: wrap;
-    margin: auto;
-    padding-top: 64px;
-    width: 90vw;
-
-    div.content {
-      margin: 10px auto;
-      width: 100%;
-      height: auto;
-      @include flex(flex-start);
-      flex-wrap: wrap;
-      overflow: none;
-    }
-
-    img {
-      position: relative;
-      width: 70vw;
-      height: auto;
-      margin: 16px auto;
-    }
-  }
+// projects show page ------------------------------------------------------------
