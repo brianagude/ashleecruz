@@ -22,6 +22,8 @@ const accesstoken =
   "358a5b67b07990394c3d9b1bdfccfc72e62a70cee0ecee048ed5100a52865765";
 const url = `https://cdn.contentful.com/spaces/${spaceid}/environments/${environmentid}/entries?access_token=${accesstoken}&order=-sys.createdAt&content_type=clientName`;
 
+
+const imageWrapper = document.querySelector('.images-wrapper');
 const projectData = function() {
   return fetch(url)
     .then(response => response.json())
@@ -46,8 +48,8 @@ const projectData = function() {
 
 projectData().then(data => {
   contentTag = data.forEach(item => {
-    body.innerHTML =
-      body.innerHTML +
+    imageWrapper.innerHTML =
+      imageWrapper.innerHTML +
       `
         <section class='images' 
           id='${item.client

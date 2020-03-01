@@ -171,39 +171,34 @@
   overflow: auto;
 }
 
-.images {
-  div:first-of-type {
-    padding-top: 48px;
-  }
+.images-wrapper {
+  padding: 88px 0;
+}
 
+.images {
   &:hover { cursor: ew-resize; }
   @include flex(center);
 
   flex-wrap: wrap;
   margin-left: 88px;
-  padding-top: 24px; 
-  padding-bottom: 24px; 
+  padding-top: 40px; 
+  padding-bottom: 40px; 
   padding-right: 24px;
   width: 90vw;
 
   @include breakpoint (sm){
     padding-top: 88px; 
     padding-bottom: 88px; 
-
-    div:first-of-type {
-      padding-top: 96px;
-    }
   }
 
   img {
     position: relative;
-    max-height: 240px;
-    width: auto;
+    max-height: 80vh;
+    min-height: 30vh;
     margin: 0 24px;
 
     @include breakpoint (xs){
-      height: 320px;
-      max-height: 100%;
+      max-height: 60vh;
     }
 
     @include breakpoint (sm){
