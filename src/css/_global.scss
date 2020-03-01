@@ -182,8 +182,10 @@
 
   flex-wrap: wrap;
   margin-left: 88px;
+  // margin: 0 88px;
   padding-top: 24px; 
   padding-bottom: 24px; 
+  padding-right: 24px;
   width: 90vw;
 
   @include breakpoint (sm){
@@ -197,11 +199,13 @@
 
   img {
     position: relative;
-    height: 240px;
+    max-height: 240px;
+    width: auto;
     margin: 0 24px;
 
     @include breakpoint (xs){
       height: 320px;
+      max-height: 100%;
     }
 
     @include breakpoint (sm){
