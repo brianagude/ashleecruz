@@ -1,3 +1,4 @@
+// mixins
 @mixin center($direction:row) {
   display: flex;
   align-items: center;
@@ -167,14 +168,10 @@
     }
 
     @include breakpoint(md){
-      font-size: 240px;
+      font-size: 220px;
     }
 
-    @include breakpoint (lg){
-      font-size: 300px;
-    }
-
-    @include breakpoint (xl){
+    @include breakpoint (xxl){
       font-size: 360px;
     }
   }
@@ -197,3 +194,74 @@
 }
 
 // projects show page ------------------------------------------------------------
+.copy {
+  position: fixed;
+  top: 0; 
+  right: 0;
+  z-index: 10;
+  padding: 16px;
+  text-align: right;
+  max-width: 230px;
+
+  @include breakpoint (sm){
+    max-width: 520px;
+  }
+}
+
+.client-copy {
+  font-weight: 700;
+
+  @include breakpoint (sm){
+    font-size: 96px;
+  }
+}
+
+.desc-copy {
+  font-weight: 300;
+  padding-top: 8px;
+}
+
+.content {
+  width: 100%;
+  height: auto;
+  @include flex(flex-start);
+  overflow: auto;
+}
+
+.images {
+  div:first-of-type {
+    padding-top: 48px;
+  }
+
+  &:hover { cursor: ew-resize; }
+  @include flex(center);
+
+  flex-wrap: wrap;
+  margin-left: 88px;
+  padding-top: 24px; 
+  padding-bottom: 24px; 
+  width: 90vw;
+
+  @include breakpoint (sm){
+    padding-top: 88px; 
+    padding-bottom: 88px; 
+
+    div:first-of-type {
+      padding-top: 96px;
+    }
+  }
+
+  img {
+    position: relative;
+    height: 240px;
+    margin: 0 24px;
+
+    @include breakpoint (xs){
+      height: 320px;
+    }
+
+    @include breakpoint (sm){
+      height: 36vw;
+    }
+  }
+}

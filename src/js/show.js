@@ -1,9 +1,9 @@
 // change elements on scroll
 document.addEventListener("scroll", function() {
   const pixels = window.pageYOffset;
-  const sections = document.querySelectorAll("section.images");
-  const client = document.querySelector("div.client h2");
-  const desc = document.querySelector("div.desc p");
+  const sections = document.querySelectorAll(".images");
+  const client = document.querySelector(".client h2");
+  const desc = document.querySelector(".desc p");
 
   sections.forEach(section => {
     if (section.offsetTop - 200 <= pixels) {
