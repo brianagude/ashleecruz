@@ -1,60 +1,3 @@
-// mixins
-@mixin center($direction:row) {
-  display: flex;
-  align-items: center;
-  justify-content: center; 
-  flex-direction: $direction;
-}
-
-@mixin flex($justify) {
-  display: flex;
-  justify-content: $justify;
-  align-items: center;
-}
-
-@mixin transition($all) {
-  transition: $all 0.5s ease;
-}
-
-@mixin breakpoint($class) {
-  @if $class == mobile-only {
-    @media (max-width: 359px) { @content; }
-  }
-  
-  @else if $class == small-only {
-    @media (max-width: 787px) { @content; }
-  }
-
-  @else if $class == tablet-only {
-    @media (max-width: 1024px) { @content; }
-  }
-
-  @else if $class == xs {
-    @media (min-width: 360px) { @content; }
-  }
-
-  @else if $class == sm {
-    @media (min-width: 768px) { @content; }
-  }
-
-  @else if $class == md {
-    @media (min-width: 1024px) { @content; }
-  }
-
-  @else if $class == lg {
-    @media (min-width: 1280px) { @content; }
-  }
-
-  @else if $class == xl {
-    @media (min-width: 1440px) { @content; }
-  }
-
-  @else if $class == xxl {
-    @media (min-width: 1920px) { @content; }
-  }
-}
-
-
 // header ------------------------------------------------------------------------------
 
 .site-header {
@@ -194,6 +137,7 @@
 }
 
 // projects show page ------------------------------------------------------------
+
 .copy {
   position: fixed;
   top: 0; 
