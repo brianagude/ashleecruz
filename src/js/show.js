@@ -56,7 +56,7 @@ projectData().then(data => {
             .toLowerCase()
             .replace(" ", "-")}' 
           data-client = '${item.client}' 
-          data-desc='${item.description}' 
+          data-desc='${item.description ? item.description : ''}' 
           data-bkgrd='${item.backgroundColor}'
         >
         <div class='content'>
